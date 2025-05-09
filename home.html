@@ -12,6 +12,7 @@ background-color:#ffff;
 max-width:800px;
 margin:auto;
 text-align: center;
+background-image: url("images.jpeg");
 }
 
 h1:hover{
@@ -39,6 +40,35 @@ margin-bottom:0.5rem;
     color: white;
     opacity:0.7;
   }
+ 
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  body {
+    animation: fadeIn 2s ease-in;
+  }
+  @keyframes slideIn {
+    from { transform: translateY(50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  
+  .contact_information {
+    animation: slideIn 5s ease-out;
+  }
+  
+  #displayMessage {
+    padding: 15px 30px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: #3498db;
+    color: rgb(39, 22, 22);
+    
+  }
+  
 @media(max-width:768px){
 body{
 padding :1.5rem;
@@ -81,13 +111,13 @@ padding-left:1rem;
 
 <h1> SKILLS AND EXPERTISE </h1>
 <p> My Skills include;
-<ol>
-<li>front end development</li>
+<ul>
+<li>Front end development</li>
 <li>Web development</li>
-<li> design</li>
+<li>Design</li>
 <li>Microsoft Excel</li>
 <li>Research skills</li>
-</ol>
+</ul>
 </p>
 
 <h1>PROFESSIONAL EXPERIENCE </h1>
@@ -128,6 +158,28 @@ LINKDN: Favour OKAH
 <p>I urge you to send an email to chat with me personally for any enquires/questions</p>
 
 </div>
+<button id="colorChangeBtn" onclick="displayMessage()">Click Me</button>
+
+
+
+<script>
+ 
+  function getRandomColor() {
+    const letters = "0123456789ABCDEF";
+    let color = "#";
+    for (let i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  }
+
+  
+  function displayMessage() {
+    const button = document.getElementById("colorChangeBtn");
+    const newColor = getRandomColor();
+    button.style.backgroundColor = newColor;
+  }
+</script>
 
 </body>
 </html>
